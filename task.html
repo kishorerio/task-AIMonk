@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #0dc2f9;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Register for AIMonk frontend engineer quiz active</h1>
+    </header>
+    <div class="container">
+        <form id="registrationForm">
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="password" placeholder="Password">
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <button type="button" id="submitBtn">Register</button>
+        </form>
+    </div>
+    <footer>
+        <p><a href="https://www.flexiquiz.com/" target="_blank">Powered by flexiquiz</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var phone = document.getElementById('phone').value;
+
+            if (firstName === '' || lastName === '' || email === '' || password === '' || phone === '') {
+                alert('Please fill in all fields');
+            } else if (!isValidEmail(email)) {
+                alert('Please enter a valid email address');
+            } else {
+                alert('Registration successful');
+                // Here you can perform further actions, such as sending the data to a server
+            }
+        });
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
